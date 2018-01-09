@@ -52,9 +52,9 @@
                     </div>
                 </div>
             </div>
-            <div class="tags-con">
+            <!-- <div class="tags-con">
                 <tags-page-opened :pageTagsList="pageTagsList"></tags-page-opened>
-            </div>
+            </div> -->
         </div>
         <div class="single-page-con" :style="{left: shrink?'60px':'200px'}">
             <div class="single-page">
@@ -157,9 +157,9 @@
                         return true;
                     }
                 });
-                if (!openpageHasTag) { //  解决关闭当前标签后再点击回退按钮会退到当前页时没有标签的问题
-                    util.openNewPage(this, name, this.$route.params || {}, this.$route.query || {});
-                }
+                // if (!openpageHasTag) { //  解决关闭当前标签后再点击回退按钮会退到当前页时没有标签的问题
+                //     util.openNewPage(this, name, this.$route.params || {}, this.$route.query || {});
+                // }
             },
             handleSubmenuChange (val) {
                 // console.log(val)

@@ -1,6 +1,5 @@
 <template>
     <div id="main" class="app-main">
-        <button>点击这里</button>
         <router-view></router-view>
     </div>
 </template>
