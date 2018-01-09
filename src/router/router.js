@@ -39,7 +39,7 @@ export const appRouter = [
     },
     {
         path: '/access-test',
-        icon: 'lock-combination',
+        icon: 'person',
         title: '用户管理',
         name: 'accesstest',
         access: 0,
@@ -55,17 +55,17 @@ export const appRouter = [
         title: '部门管理',
         component: Main,
         children: [
-            { path: 'editableTable', title: '可编辑表格', name: 'editable-table', icon: 'edit', component: resolve => { require(['@/views/tables/editable-table.vue'], resolve); } }
+            { path: 'editableTable', title: '可编辑表格', name: 'editable-table', component: resolve => { require(['@/views/tables/editable-table.vue'], resolve); } }
         ]
     },
     {
         path: '/advanced-router',
-        icon: 'ios-infinite',
+        icon: 'person-stalker',
         name: 'advanced-router',
         title: '角色管理',
         component: Main,
         children: [
-            { path: 'mutative-router', title: '动态路由', name: 'mutative-router', icon: 'link', component: resolve => { require(['@/views/advanced-router/mutative-router.vue'], resolve); } }
+            { path: 'mutative-router', title: '动态路由', name: 'mutative-router',  component: resolve => { require(['@/views/advanced-router/mutative-router.vue'], resolve); } }
         ]
     }
 ];

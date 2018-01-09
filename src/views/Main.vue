@@ -6,7 +6,6 @@
         <div class="sidebar-menu-con" :style="{width: shrink?'60px':'200px', overflow: shrink ? 'visible' : 'auto'}">
             <shrinkable-menu 
                 :shrink="shrink"
-                @on-change="handleSubmenuChange"
                 :theme="menuTheme" 
                 :before-push="beforePush"
                 :open-names="openedSubmenuArr"
@@ -30,10 +29,6 @@
                     </div>
                 </div>
                 <div class="header-avator-con">
-                    <full-screen v-model="isFullScreen" @on-change="fullscreenChange"></full-screen>
-                    <lock-screen></lock-screen>
-                    <message-tip v-model="mesCount"></message-tip>
-                    <theme-switch></theme-switch>
                     
                     <div class="user-dropdown-menu-con">
                         <Row type="flex" justify="end" align="middle" class="user-dropdown-innercon">
@@ -52,9 +47,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="tags-con">
-                <tags-page-opened :pageTagsList="pageTagsList"></tags-page-opened>
-            </div> -->
         </div>
         <div class="single-page-con" :style="{left: shrink?'60px':'200px'}">
             <div class="single-page">
@@ -69,10 +61,6 @@
     import shrinkableMenu from './main-components/shrinkable-menu/shrinkable-menu.vue';
     import tagsPageOpened from './main-components/tags-page-opened.vue';
     import breadcrumbNav from './main-components/breadcrumb-nav.vue';
-    import fullScreen from './main-components/fullscreen.vue';
-    import lockScreen from './main-components/lockscreen/lockscreen.vue';
-    import messageTip from './main-components/message-tip.vue';
-    import themeSwitch from './main-components/theme-switch/theme-switch.vue';
     import Cookies from 'js-cookie';
     import util from '@/libs/util.js';
     
@@ -80,11 +68,7 @@
         components: {
             shrinkableMenu,
             tagsPageOpened,
-            breadcrumbNav,
-            fullScreen,
-            lockScreen,
-            messageTip,
-            themeSwitch
+            breadcrumbNav
         },
         data () {
             return {
@@ -157,23 +141,9 @@
                         return true;
                     }
                 });
-                // if (!openpageHasTag) { //  解决关闭当前标签后再点击回退按钮会退到当前页时没有标签的问题
-                //     util.openNewPage(this, name, this.$route.params || {}, this.$route.query || {});
-                // }
-            },
-            handleSubmenuChange (val) {
-                // console.log(val)
             },
             beforePush (name) {
-                // if (name === 'accesstest_index') {
-                //     return false;
-                // } else {
-                //     return true;
-                // }
                 return true;
-            },
-            fullscreenChange (isFullScreen) {
-                // console.log(isFullScreen);
             }
         },
         watch: {
