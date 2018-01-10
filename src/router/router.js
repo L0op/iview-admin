@@ -19,9 +19,7 @@ export const otherRouter = {
     children: [
         { path: 'home', title: {i18n: 'home'}, name: 'home_index', component: resolve => { require(['@/views/home/home.vue'], resolve); } },
         { path: 'ownspace', title: '个人中心', name: 'ownspace_index', component: resolve => { require(['@/views/own-space/own-space.vue'], resolve); } },
-        { path: 'order/:order_id', title: '订单详情', name: 'order-info', component: resolve => { require(['@/views/advanced-router/component/order-info.vue'], resolve); } }, // 用于展示动态路由
-        { path: 'shopping', title: '购物详情', name: 'shopping', component: resolve => { require(['@/views/advanced-router/component/shopping-info.vue'], resolve); } }, // 用于展示带参路由
-        { path: 'message', title: '消息中心', name: 'message_index', component: resolve => { require(['@/views/message/message.vue'], resolve); } }
+        { path: 'order/:order_id', title: '订单详情', name: 'order-info', component: resolve => { require(['@/views/system/component/order-info.vue'], resolve); } } // 用于展示动态路由
     ]
 };
 
@@ -31,41 +29,13 @@ export const appRouter = [
         path: '/access',
         icon: 'key',
         name: 'access',
-        title: '权限管理',
+        title: '系统管理',
         component: Main,
         children: [
-            { path: 'index', title: '权限管理', name: 'access_index', component: resolve => { require(['@/views/access/access.vue'], resolve); } }
-        ]
-    },
-    {
-        path: '/access-test',
-        icon: 'person',
-        title: '用户管理',
-        name: 'accesstest',
-        access: 0,
-        component: Main,
-        children: [
-            { path: 'index', title: '用户管理', name: 'accesstest_index', access: 0, component: resolve => { require(['@/views/access/access-test.vue'], resolve); } }
-        ]
-    },
-    {
-        path: '/tables',
-        icon: 'ios-grid-view',
-        name: 'tables',
-        title: '部门管理',
-        component: Main,
-        children: [
-            { path: 'editableTable', title: '可编辑表格', name: 'editable-table', component: resolve => { require(['@/views/tables/editable-table.vue'], resolve); } }
-        ]
-    },
-    {
-        path: '/advanced-router',
-        icon: 'person-stalker',
-        name: 'advanced-router',
-        title: '角色管理',
-        component: Main,
-        children: [
-            { path: 'mutative-router', title: '动态路由', name: 'mutative-router',  component: resolve => { require(['@/views/advanced-router/mutative-router.vue'], resolve); } }
+            { path: 'access-management', title: '权限管理', name: 'access-management',icon:'key', component: resolve => { require(['@/views/system/access-management.vue'], resolve); } },
+            { path: 'user-management', title: '用户管理', name: 'user-management',icon:'person', access: 0, component: resolve => { require(['@/views/system/user-management.vue'], resolve); } },
+            { path: 'dep-management', title: '部门管理', name: 'dep-management',icon:'ios-grid-view', component: resolve => { require(['@/views/system/dep-management.vue'], resolve); } },
+            { path: 'role-management', title: '角色管理', name: 'role-management',icon:'person-stalker', component: resolve => { require(['@/views/system/role-management.vue'], resolve); } }
         ]
     }
 ];
